@@ -1,4 +1,6 @@
-# BDII — a toy database engine
+# toy-dbms-cpp
+
+> BDII — a toy database engine
 
 Final project for *Base de Datos II* (UCSP, 2018): a small single-user database
 engine in C++ with its own command language, storing every table as a
