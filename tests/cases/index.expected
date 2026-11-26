@@ -1,0 +1,150 @@
+### stdout
+BDII >> id nombre 
+ 0
+
+     >> 1
+-1
+id nombre 
+alumnos
+selectalumnosid1
+alumnos
+-1
+alumnos
+alumnos
+
+     >> 1
+-1
+id nombre 
+alumnos
+selectalumnosid2
+alumnos
+-1
+alumnos
+alumnos
+
+     >> 1
+-1
+id nombre 
+alumnos
+selectalumnosid3
+alumnos
+-1
+alumnos
+alumnos
+
+     >> alumnosidxid
+alumnos
+30
+105
+11
+alumnos
+
+     >> selectalumnosid3
+alumnos
+usando índice: idx
+cargar avl
+100%
+1
+3         Rosa                
+
+     >> selectalumnosid3
+alumnos
+-1
+alumnos
+3         Rosa                
+
+     >> 1
+-1
+id nombre 
+alumnos
+selectalumnosid4
+alumnos
+usando índice: idx
+cargar avl
+100%
+alumnos
+alumnosidxid
+alumnos
+30
+136
+11
+alumnos
+
+     >> selectalumnosid4
+alumnos
+usando índice: idx
+cargar avl
+100%
+1
+4         Juan                
+
+     >> alumnos
+1
+usando indice: idx
+2         Pedro               
+
+     >> selectalumnosid2
+alumnos
+usando índice: idx
+cargar avl
+100%
+1
+2         Pedro               
+
+     >> alumnos
+1
+usando indice: idx
+3         Al                  
+
+     >> selectalumnosid3
+alumnos
+usando índice: idx
+cargar avl
+100%
+1
+3         Al                  
+
+     >> alumnos
+usando indice: idx
+
+     >> selectalumnosid1
+alumnos
+usando índice: idx
+cargar avl
+100%
+1
+
+     >> -1
+alumnos
+2         Pedro               
+3         Al                  
+4         Juan                
+
+     >> 
+### exit status: 0
+### file alumnos.txt
+id nombre 
+1-        Ana                 
+2         Pedro               
+3         Al                  
+4         Juan                
+ 4
+### file idx0.ind
+0 2 1 0
+
+1 1 1 5
+
+2 3 1 10
+
+6 4 1 15
+
+
+### file idx0.txt
+1 42 1 11 1 73 1 104 
+### file indexes.txt
+alumnos id 0 idx
+alumnos id 0 idx 4
+
+### file tables.txt
+alumnos 2 0 1 20
+

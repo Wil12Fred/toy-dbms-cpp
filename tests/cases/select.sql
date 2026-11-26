@@ -1,0 +1,14 @@
+CREAR_TABLA alumnos (id: entero, nombre: varchar(20));
+INSERTAR_EN alumnos(id: 1, nombre: Ana);
+INSERTAR_EN alumnos(id: 2, nombre: Luis);
+INSERTAR_EN alumnos(id: 3, nombre: Rosa);
+SELECCIONAR_EN alumnos *;
+SELECCIONAR_EN alumnos id 1;
+SELECCIONAR_EN alumnos id 3;
+SELECCIONAR_EN alumnos nombre Luis;
+SELECCIONAR_EN alumnos id 9;
+CREAR_TABLA cursos (codigo: entero, titulo: varchar(15), creditos: entero, aula: varchar(5));
+INSERTAR_EN cursos(codigo: 10, titulo: Algebra, creditos: 4, aula: A1);
+INSERTAR_EN cursos(codigo: 20, titulo: Fisica, creditos: 3, aula: B2);
+SELECCIONAR_EN cursos aula B2;
+SELECCIONAR_EN cursos creditos 4;

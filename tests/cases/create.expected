@@ -1,0 +1,19 @@
+### stdout
+BDII >> id nombre 
+ 0
+
+     >> codigo titulo creditos aula 
+ 0
+
+     >> 
+### exit status: 0
+### file alumnos.txt
+id nombre 
+ 0
+### file cursos.txt
+codigo titulo creditos aula 
+ 0
+### file tables.txt
+alumnos 2 0 1 20
+cursos 4 0 1 15 0 1 5
+

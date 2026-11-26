@@ -1,0 +1,95 @@
+### stdout
+BDII >> id nombre 
+ 0
+
+     >> 1
+-1
+id nombre 
+alumnos
+selectalumnosid1
+alumnos
+-1
+alumnos
+alumnos
+
+     >> 1
+-1
+id nombre 
+alumnos
+selectalumnosid2
+alumnos
+-1
+alumnos
+alumnos
+
+     >> 1
+-1
+id nombre 
+alumnos
+selectalumnosid3
+alumnos
+-1
+alumnos
+alumnos
+
+     >> alumnos
+-1
+alumnos
+
+     >> -1
+alumnos
+2         Luis                
+3         Rosa                
+
+     >> codigo titulo creditos aula 
+ 0
+
+     >> 1
+-1
+codigo titulo creditos aula 
+cursos
+selectcursoscodigo10
+cursos
+-1
+cursos
+Algebra
+cursos
+cursos
+
+     >> 1
+-1
+codigo titulo creditos aula 
+cursos
+selectcursoscodigo20
+cursos
+-1
+cursos
+Fisica
+cursos
+cursos
+
+     >> cursos
+-1
+cursos
+
+     >> -1
+cursos
+20        Fisica              3         B2                  
+
+     >> 
+### exit status: 0
+### file alumnos.txt
+id nombre 
+1-        Ana                 
+2         Luis                
+3         Rosa                
+ 3
+### file cursos.txt
+codigo titulo creditos aula 
+1-        Algebra             4         A1                  
+20        Fisica              3         B2                  
+ 20
+### file tables.txt
+alumnos 2 0 1 20
+cursos 4 0 1 15 0 1 5
+

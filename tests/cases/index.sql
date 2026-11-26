@@ -1,0 +1,16 @@
+CREAR_TABLA alumnos (id: entero, nombre: varchar(20));
+INSERTAR_EN alumnos(id: 1, nombre: Ana);
+INSERTAR_EN alumnos(id: 2, nombre: Luis);
+INSERTAR_EN alumnos(id: 3, nombre: Rosa);
+CREAR_INDICE_EN alumnos idx (id);
+SELECCIONAR_EN alumnos id 3;
+ESCANEAR_EN alumnos id 3;
+INSERTAR_EN alumnos(id: 4, nombre: Juan);
+SELECCIONAR_EN alumnos id 4;
+ACTUALIZAR_EN alumnos id 2 nombre Pedro;
+SELECCIONAR_EN alumnos id 2;
+ACTUALIZAR_EN alumnos id 3 nombre Al;
+SELECCIONAR_EN alumnos id 3;
+ELIMINAR_EN alumnos id 1;
+SELECCIONAR_EN alumnos id 1;
+SELECCIONAR_EN alumnos *;

@@ -1,0 +1,51 @@
+### stdout
+BDII >> id nombre 
+ 0
+
+     >> 1
+-1
+id nombre 
+alumnos
+selectalumnosid1
+alumnos
+-1
+alumnos
+alumnos
+
+     >> 1
+-1
+id nombre 
+alumnos
+selectalumnosid2
+alumnos
+-1
+alumnos
+alumnos
+
+     >> alumnos
+1
+nv Pedro
+-1
+2         Pedro               
+
+     >> alumnos
+1
+nv Bo
+-1
+1         Bo                  
+
+     >> -1
+alumnos
+1         Bo                  
+2         Pedro               
+
+     >> 
+### exit status: 0
+### file alumnos.txt
+id nombre 
+1         Bo                  
+2         Pedro               
+ 2
+### file tables.txt
+alumnos 2 0 1 20
+
