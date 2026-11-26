@@ -6,4 +6,6 @@ jobs:
     steps:
       - uses: actions/checkout@v4
       - run: make
-      - run: make demo | grep -q 'usando índice: idx'
+      - name: Run the demo and check the index is used
+        run: |
+          make demo | grep -q 'usando índice: idx'
