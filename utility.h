@@ -8,8 +8,8 @@ int get_MaxId(string& name, int jump=-1, int* size=NULL){
 	}
 	char line[256];
 	fgets(line, sizeof(line), pFile);
-	fpos_t init;
-	fgetpos(pFile, &init);
+	long init;  // was fpos_t: an integer on macOS, a struct on glibc
+	init = ftell(pFile);
 	fseek (pFile , 0 , SEEK_END);
 	lSize = ftell (pFile);
 	string number="";

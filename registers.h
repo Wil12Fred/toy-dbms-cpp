@@ -378,7 +378,7 @@ void eliminar(string name, string cond, string comp){//R
 		int t=get_MaxId(name);
 		FILE * pFile;
 		long lSize;
-		fpos_t pos;
+		long pos;  // was fpos_t: an integer on macOS, a struct on glibc
 		pFile = fopen (string(name+".txt").c_str(),"r+w");
 		if(pFile==NULL){
 			return;
@@ -393,7 +393,7 @@ void eliminar(string name, string cond, string comp){//R
 		}
 		vector<long> Positions;
 		while (t){
-			fgetpos (pFile,&pos);
+			pos = ftell(pFile);
 			fgets(line, sizeof(line), pFile);
 			Line=string(line);
 			if(Line[0]==' '){
@@ -440,7 +440,7 @@ void actualizar(string name, string cond, string comp,string cond2,string new_va
 		int t=get_MaxId(name);
 		FILE * pFile;
 		long lSize;
-		fpos_t pos;
+		long pos;  // was fpos_t: an integer on macOS, a struct on glibc
 		pFile = fopen (string(name+".txt").c_str(),"r+w");
 		if(pFile==NULL){
 			return;
@@ -449,7 +449,7 @@ void actualizar(string name, string cond, string comp,string cond2,string new_va
 		fgets(line, sizeof(line), pFile);
 		string Line(line);
 		while (t){
-			fgetpos (pFile,&pos);
+			pos = ftell(pFile);
 			fgets(line, sizeof(line), pFile);
 			Line=string(line);
 			if(Line[0]==' '){

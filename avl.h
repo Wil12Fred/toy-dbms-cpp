@@ -94,14 +94,14 @@ void bfs(nodoAVL<T>* n, string indexFile){
 	}
 	int i=0;
 	int ant=-1;
-	fpos_t pos;
+	long pos;  // was fpos_t: an integer on macOS, a struct on glibc
 	while(i<BFS.size()){
 		/*for (int ii=ant+1; ii<BFS[i].second; ii++){
 			//cout << endl;
 			fprintf(pFile, "\n");
 			fprintf(pFile2, "\n");
 		}*/
-		fgetpos(pFile, &pos);
+		pos = ftell(pFile);
 		//id, dato, cant
 		fprintf(pFile2, "%d %d %d %d\n",BFS[i].second, BFS[i].first->dato, 1, (int)pos);
 		fprintf(pFile, "%d ",(int)BFS[i].first->value.size());

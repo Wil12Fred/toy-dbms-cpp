@@ -51,7 +51,7 @@ void clear_tables(){//R
 void add_table(string& line_table, string& name,vector<string>& headers){
 	FILE * pFile;
 	long lSize;
-	fpos_t position;
+	long position;  // was fpos_t: an integer on macOS, a struct on glibc
 	pFile = fopen ("tables.txt","rw");
 	if(pFile==NULL){
 		pFile = fopen ("tables.txt","w");
