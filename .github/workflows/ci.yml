@@ -1,11 +1,14 @@
-name: build
+name: CI
 on: [push, pull_request]
 jobs:
   build:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
-      - run: make
+      - name: Build
+        run: make CXXFLAGS="-std=c++17 -O2 -Wall"
+      - name: Golden tests (one case per command)
+        run: make test
       - name: Run the demo and check the index is used
         run: |
           make demo | grep -q 'usando índice: idx'
