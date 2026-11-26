@@ -1,0 +1,9 @@
+build/
+*.o
+a.out
+.DS_Store
+.idea/
+.vscode/
+# data files the engine writes into the working directory
+/*.txt
+/*.ind
