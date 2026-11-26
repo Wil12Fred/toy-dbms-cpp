@@ -62,8 +62,10 @@ bool select(string name, string pos, string cond, bool tablescanning=false){//R
 		int t=get_MaxId(name);
 		std::ifstream ifs (string(name+".txt").c_str(), std::ifstream::in);
 		string line;
-		vector<string> H(3);
-		for (int i=0;i<3;i++){
+		// read the real header: a fixed H(3) consumed the first row of a
+		// 2-column table and ignored every column after the third
+		vector<string> H=obtener_cabecera(name);
+		for (int i=0;i<H.size();i++){
 			ifs >> H[i];
 		}
 		getline(ifs, line);
@@ -71,7 +73,7 @@ bool select(string name, string pos, string cond, bool tablescanning=false){//R
 			//getline(ifs, line);
 			if(line[0]!=' ' && line[1]!='-'){
 				stringstream iss(line);
-				for (int i=0;i<3;i++){
+				for (int i=0;i<H.size();i++){
 					string next;
 					iss >> next;
 					if(pos==H[i] && next==cond){
@@ -242,7 +244,7 @@ string insertar (string& name, vector<string>& name_registers, vector<string>& t
 	for (int i=0; i<name_registers.size(); i++){
 		string nameIndex;
 		if(existIndice(name, name_registers[i],nameIndex)){
-			crear_indice(name, nameIndex, name_registers[i]);
+			crear_indice(name, nameIndex, name_registers[i], true);  // full rebuild: the incremental path mixed index-file offsets with row offsets
 		}
 	}
 	return "Operación ejecutada exitosamente";
@@ -387,8 +389,8 @@ void eliminar(string name, string cond, string comp){//R
 		fgets(line, sizeof(line), pFile);
 		string Line(line);
 		stringstream iss(Line);
-		vector<string> H(3);
-		for (int i=0;i<3;i++){
+		vector<string> H=obtener_cabecera(name);  // was H(3): columns after the third were never matched
+		for (int i=0;i<H.size();i++){
 			iss >> H[i];
 		}
 		vector<long> Positions;
@@ -404,7 +406,7 @@ void eliminar(string name, string cond, string comp){//R
 			}
 			stringstream iss(Line);
 			string value;
-			for (int i=0;i<3;i++){
+			for (int i=0;i<H.size();i++){
 				iss >> value;
 				if(H[i]==cond && value==comp){
 					Positions.push_back(pos);
@@ -480,6 +482,7 @@ void actualizar(string name, string cond, string comp,string cond2,string new_va
 										Line2[j]=new_value[k];
 										j++;
 									}
+									j--;  // the loop's own j++ skipped the char after the new value ("Ana"->"Bo" gave "Boa")
 									update=1;
 								} else {
 									Line2[j]=' ';
@@ -543,6 +546,7 @@ void actualizar(string name, string cond, string comp,string cond2,string new_va
 											Line2[j]=new_value[k];
 											j++;
 										}
+										j--;  // the loop's own j++ skipped the char after the new value ("Ana"->"Bo" gave "Boa")
 										update=1;
 									} else {
 										Line2[j]=' ';
@@ -560,8 +564,7 @@ void actualizar(string name, string cond, string comp,string cond2,string new_va
 				fputs (Positions[i].second.c_str(),pFile);
 			}
 			fclose (pFile);
-			//fclose(pFile2);
-			fclose(pFile);
+			fclose(pFile2);  // pFile was closed twice here (double free on every indexed update)
 			//crear_indice(name, nameIndex, cond);
 			/*cout << f->value.size() << endl;
 			FILE* pFile;
